@@ -7,20 +7,20 @@ const productSchema = mongoose.Schema({
         required:true
     },
     desc: String,
-    price: Number,
+    price: {
+        type:Number,
+        required:true
+    },
     brand:{
         type:String,
         required:true
     },
-    users: [String],
     addedAt:{
         type: Date,
         default: Date.now()
     },
     women: Boolean,
-    men: Boolean,
-    men_shoe: Boolean,
-    women_shoe: Boolean
+    men: Boolean
 })
 
 const ProductModel = mongoose.model("product", productSchema)
@@ -28,5 +28,5 @@ const ProductModel = mongoose.model("product", productSchema)
 
 
 module.exports = {
-    ProductModel
+    productSchema,ProductModel
 }
